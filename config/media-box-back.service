@@ -1,0 +1,23 @@
+[Unit]
+Description=MediaBox
+After=syslog.target
+After=network.target
+StartLimitBurst=0
+
+[Service]
+Type=simple
+PIDFile=/tmp/media-box.pid
+WorkingDirectory=/home/forest/Projects/media-box
+Restart=on-failure
+
+User=forest
+Group=forest
+
+OOMScoreAdjust=-1000
+
+ExecStart=/home/forest/Projects/media-box/back
+ExecStop=/bin/kill -2 `cat /tmp/media-box.pid`
+TimeoutSec=300
+
+[Install]
+WantedBy=multi-user.target

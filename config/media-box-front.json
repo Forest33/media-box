@@ -1,0 +1,22 @@
+{
+  "broker": {
+    "host": "192.168.0.3",
+    "port": 1883,
+    "state_topic": "media-box/state",
+    "client_id": "media-box-front",
+    "user_name": "media-box-ui",
+    "password": "bigpig23"
+  },
+  "logger": {
+    "level": "debug",
+    "time_field_format": "2006-01-02T15:04:05Z07:00",
+    "pretty_print": true,
+    "disable_sampling": false,
+    "redirect_std_logger": false,
+    "error_stack": true,
+    "show_caller": false
+  },
+  "image": {
+    "output_path": "./assets"
+  }
+}

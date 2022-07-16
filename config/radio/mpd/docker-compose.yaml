@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+
+  mpd:
+    image: vimagick/mpd
+    ports:
+      - "6600:6600"
+      - "8800:8800"
+    volumes:
+      - ./data/config:/root/.config
+      - ./data/music:/var/lib/mpd/music
+      - ./data/playlists:/var/lib/mpd/playlists
+    restart: unless-stopped

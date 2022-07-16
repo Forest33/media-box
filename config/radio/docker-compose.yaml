@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+
+  shoutcast:
+    image: vimagick/shoutcast
+    ports:
+      - "8000:8000"
+      - "8001:8001"
+    volumes:
+      - ./sc_serv.conf:/opt/shoutcast/sc_serv.conf
+    restart: always
+
+  icecast:
+    image: moul/icecast
+    volumes:
+      - logs:/var/log/icecast2
+    - /etc/localtime:/etc/localtime:ro
+    environment:
+      - ICECAST_SOURCE_PASSWORD=tNLdv0WudmuZQHWp3FpG
+      - ICECAST_ADMIN_PASSWORD=pilDqDZ7ZijdP57yBKfv
+      - ICECAST_PASSWORD=tNLdv0WudmuZQHWp3FpG
+      - ICECAST_RELAY_PASSWORD=tNLdv0WudmuZQHWp3FpG
+      - ICECAST_HOSTNAME=radio.boykevich.ru
+    ports:
+      - 8001:8000
+  
